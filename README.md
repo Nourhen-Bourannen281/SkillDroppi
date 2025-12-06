@@ -39,11 +39,6 @@ Créer un pont entre les besoins locaux et les compétences disponibles, favoris
 - Réponses contextuelles et aide à la navigation
 - Interface conversationnelle intuitive
 
-### 🎭 Avatar Interactif Animé
-- Avatar SVG animé qui réagit aux saisies utilisateur
-- Expressions faciales dynamiques lors de la connexion
-- Animation des yeux et bouche selon le contenu saisi
-
 ### 📊 Tableau de Bord
 - Vue d'ensemble des activités (services, commandes, messages)
 - Graphiques et statistiques de performance
@@ -60,8 +55,6 @@ Créer un pont entre les besoins locaux et les compétences disponibles, favoris
 - **React 18.2.0** - Framework JavaScript moderne
 - **React Router** - Navigation côté client
 - **Axios** - Requêtes HTTP
-- **Chart.js** - Graphiques et visualisations
-- **GSAP** - Animations avancées
 - **Socket.io-client** - Communication temps réel
 
 ### Backend
@@ -90,16 +83,6 @@ Créer un pont entre les besoins locaux et les compétences disponibles, favoris
 ```bash
 cd backend
 npm install
-```
-
-### Configuration de l'Environnement
-
-Créer un fichier `.env` dans le dossier backend :
-
-```env
-MONGO_URI=mongodb://localhost:27017/skillforge
-JWT_SECRET=votre_secret_jwt
-PORT=5000
 ```
 
 ### Démarrage du Backend
@@ -137,24 +120,11 @@ L'application sera accessible sur `http://localhost:3000`
 
 ## 🎨 Fonctionnalités Innovantes
 
-### Avatar Interactif
-Notre avatar SVG animé apporte une touche ludique à l'expérience utilisateur. Il réagit en temps réel aux saisies :
-- Les yeux suivent le curseur lors de la saisie email
-- La bouche s'anime selon la longueur du texte
-- Les bras couvrent les yeux lors de la saisie du mot de passe
-
 ### Chatbot IA
 Un assistant virtuel intelligent guide les utilisateurs à travers la plateforme, offrant :
 - Aide contextuelle
 - Réponses instantanées
 - Suggestions personnalisées
-
-## 📊 Statistiques du Projet
-
-- **500+** Prestataires actifs
-- **1,200+** Services réalisés
-- **98%** Satisfaction client
-- **50+** Catégories de services
 
 ## 🎬 Démo & Screenshots
 
@@ -193,13 +163,7 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
-## 📝 Licence
 
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 👥 Équipe
-
-Développé avec ❤️ par l'équipe SkillForge
 
 ## 📞 Contact
 

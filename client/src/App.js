@@ -1,4 +1,4 @@
-// App.js - AJOUTEZ LE CHATBOT
+// App.js - Intégration du ChatBot avec HashRouter
 import React from "react";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
@@ -15,21 +15,17 @@ import Auth from "./pages/Auth";
 import ChatBot from "./components/ChatBot";
 import LandingPage from "./pages/LandingPage";
 
-// Route protégée
+// Composant pour les routes protégées
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
-
   if (loading) return <div>Chargement...</div>;
-
   return user ? children : <Navigate to="/#/" />;
 };
 
-// Route publique
+// Composant pour les routes publiques
 const PublicRoute = ({ children }) => {
   const { user, loading } = React.useContext(AuthContext);
-
   if (loading) return <div>Chargement...</div>;
-
   return !user ? children : <Navigate to="/#/dashboard" />;
 };
 
@@ -37,79 +33,102 @@ function App() {
   return (
     <AuthProvider>
       <HashRouter>
-
         <Routes>
 
+          {/* Landing page */}
           <Route path="/" element={<LandingPage />} />
 
-          <Route path="/auth" element={
-            <PublicRoute>
-              <Auth />
-            </PublicRoute>
-          } />
+          {/* Authentification */}
+          <Route
+            path="/auth"
+            element={
+              <PublicRoute>
+                <Auth />
+              </PublicRoute>
+            }
+          />
 
-          <Route path="/dashboard" element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/profile" element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/user/:userId" element={
-            <ProtectedRoute>
-              <UserProfile />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/todo" element={
-            <ProtectedRoute>
-              <Todo />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/services" element={
-            <ProtectedRoute>
-              <Services />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/marketplace" element={
-            <ProtectedRoute>
-              <Marketplace />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/orders" element={
-            <ProtectedRoute>
-              <Orders />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/reviews" element={
-            <ProtectedRoute>
-              <Reviews />
-            </ProtectedRoute>
-          } />
-
-          <Route path="/messenger" element={
-            <ProtectedRoute>
-              <Messenger />
-            </ProtectedRoute>
-          } />
+          {/* Routes protégées */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/:userId"
+            element={
+              <ProtectedRoute>
+                <UserProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/todo"
+            element={
+              <ProtectedRoute>
+                <Todo />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <ProtectedRoute>
+                <Services />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/marketplace"
+            element={
+              <ProtectedRoute>
+                <Marketplace />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <Orders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviews"
+            element={
+              <ProtectedRoute>
+                <Reviews />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/messenger"
+            element={
+              <ProtectedRoute>
+                <Messenger />
+              </ProtectedRoute>
+            }
+          />
 
           {/* Route par défaut */}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route path="*" element={<Navigate to="/#/dashboard" />} />
 
         </Routes>
 
-        {/* Chatbot */}
+        {/* Chatbot visible sur toutes les pages */}
         <ChatBot />
-
       </HashRouter>
     </AuthProvider>
   );

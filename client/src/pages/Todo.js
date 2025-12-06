@@ -28,8 +28,8 @@ export default function Todo() {
 
       console.log("🔄 Chargement des todos...");
       
-      const response = await axios.get("http://localhost:5000/api/todos", {
-        headers: { 
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/todos`, {
+        headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
@@ -70,16 +70,16 @@ export default function Todo() {
       console.log("➕ Ajout nouvelle todo:", newTodo);
       
       const response = await axios.post(
-        "http://localhost:5000/api/todos",
-        { 
+        `${process.env.REACT_APP_API_URL}/api/todos`,
+        {
           title: newTodo,
-          completed: false 
+          completed: false
         },
-        { 
-          headers: { 
+        {
+          headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
-          } 
+          }
         }
       );
       
@@ -102,13 +102,13 @@ export default function Todo() {
       console.log("✏️ Toggle todo:", id, "completed:", !completed);
       
       const response = await axios.put(
-        `http://localhost:5000/api/todos/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/todos/${id}`,
         { completed: !completed },
-        { 
-          headers: { 
+        {
+          headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
-          } 
+          }
         }
       );
       
@@ -170,8 +170,8 @@ export default function Todo() {
       
       console.log("🗑️ Suppression des todos complétées");
       
-      const response = await axios.delete("http://localhost:5000/api/todos", {
-        headers: { 
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/todos`, {
+        headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }

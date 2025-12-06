@@ -86,7 +86,7 @@ export default function Auth() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
         {
           email: loginForm.email.toLowerCase().trim(),
           password: loginForm.password
@@ -125,7 +125,7 @@ export default function Auth() {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
         payload,
         { headers: { "Content-Type": "application/json" }, timeout: 10000 }
       );
@@ -159,7 +159,7 @@ export default function Auth() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/get-security-question",
+        `${process.env.REACT_APP_API_URL}/api/auth/get-security-question`,
         { email: emailToUse.toLowerCase().trim() },
         { timeout: 5000 }
       );
@@ -197,7 +197,7 @@ export default function Auth() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/reset-password",
+        `${process.env.REACT_APP_API_URL}/api/auth/reset-password`,
         {
           email: forgotPasswordData.email,
           securityAnswer: forgotPasswordData.securityAnswer,

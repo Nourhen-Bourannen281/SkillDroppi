@@ -35,7 +35,7 @@ export default function Profile() {
 
         // Test d'abord la connexion au backend
         try {
-          const healthResponse = await fetch('http://localhost:5000/api/health');
+          const healthResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/health`);
           if (!healthResponse.ok) {
             throw new Error("Backend non disponible");
           }
@@ -46,7 +46,7 @@ export default function Profile() {
 
         // Essayer de récupérer le vrai profil
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/users/profile', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export default function Profile() {
       } else {
         // Essayer la vraie API
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/users/profile', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -212,14 +212,14 @@ export default function Profile() {
     
     try {
       console.log("🔄 Tentative de reconnexion au backend...");
-      
-      const healthResponse = await fetch('http://localhost:5000/api/health');
+
+      const healthResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/health`);
       if (!healthResponse.ok) {
         throw new Error("Backend toujours indisponible");
       }
-      
+
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

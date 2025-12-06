@@ -5,7 +5,10 @@
 - [x] Commit des changements
 - [x] Créer un fichier .env.example pour le backend
 - [x] Mettre à jour les origines CORS pour la production
-- [ ] Build du frontend React
+- [x] Créer un fichier .env.example pour le frontend
+- [x] Mettre à jour AuthContext pour utiliser les variables d'environnement
+- [x] Commit des changements de préparation
+- [x] Build du frontend React
 
 ## ⏳ Étape 2: Configuration MongoDB Atlas
 - [ ] Créer un cluster gratuit sur Atlas

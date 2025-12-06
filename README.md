@@ -206,7 +206,3 @@ Développé avec ❤️ par l'équipe SkillForge
 Pour toute question ou suggestion :
 - Email : contact@skillforge.tn
 - Site web : [www.skillforge.tn](https://www.skillforge.tn)
-
----
-
-⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile sur GitHub !
